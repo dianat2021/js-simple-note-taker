@@ -6,8 +6,12 @@ const noteText = document.querySelector(".note-text");
 const error = document.querySelector(".error-message");
 const submitButton = document.querySelector(".submit-btn");
 
-const notesList = [];
+const notesList = JSON.parse(localStorage.getItem("notes-array")) || [];
 // ---------- FUNCTION THAT COLLECTS THE DATA AND ADDS IT TO THE LIST ON SUBMIT
+const storeNotes = () => {
+  localStorage.setItem("notes-array", JSON.stringify(notesList));
+};
+
 const addNotes = () => {
   const isDataValid = validateInputFields(
     subjectInput,
@@ -25,6 +29,7 @@ const addNotes = () => {
       text: noteText.value,
     };
     notesList.push(currentNote);
+    storeNotes();
     console.log(notesList);
   }
 };
