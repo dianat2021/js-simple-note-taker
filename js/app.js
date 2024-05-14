@@ -1,14 +1,21 @@
 import validateInputFields from "./inputValidation.js";
+import renderNotes from "./renderNotes.js";
 
 const subjectInput = document.querySelector(".note-subject");
 const dateInput = document.querySelector(".note-date");
 const noteText = document.querySelector(".note-text");
 const error = document.querySelector(".error-message");
 const submitButton = document.querySelector(".submit-btn");
-
+const emptyNotesList = document.querySelector(".empty-notes-list");
 const notesList = JSON.parse(localStorage.getItem("notes-array")) || [];
+
+document.addEventListener("DOMContentLoaded", () => {
+  emptyNotesList.style.display = notesList.length === 0 ? "block" : "none";
+  renderNotes(notesList);
+});
+
 // ---------- FUNCTION THAT COLLECTS THE DATA AND ADDS IT TO THE LIST ON SUBMIT
-const storeNotes = () => {
+const saveNotesToLocalStorage = () => {
   localStorage.setItem("notes-array", JSON.stringify(notesList));
 };
 
@@ -29,8 +36,9 @@ const addNotes = () => {
       text: noteText.value,
     };
     notesList.push(currentNote);
-    storeNotes();
-    console.log(notesList);
+    renderNotes(notesList);
+    saveNotesToLocalStorage();
+    emptyNotesList.style.display = "none";
   }
 };
 
