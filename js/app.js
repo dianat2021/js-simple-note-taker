@@ -1,4 +1,4 @@
-import validateInputFields from "./inputValidation.js";
+import { validateInputFields, validateNoteLength } from "./inputValidation.js";
 import renderNotes from "./renderNotes.js";
 
 const subjectInput = document.querySelector(".note-subject");
@@ -12,6 +12,11 @@ const notesList = JSON.parse(localStorage.getItem("notes-array")) || [];
 document.addEventListener("DOMContentLoaded", () => {
   emptyNotesList.style.display = notesList.length === 0 ? "block" : "none";
   renderNotes(notesList);
+});
+
+noteText.addEventListener("input", () => {
+  validateNoteLength(noteText, error);
+  console.log("test");
 });
 
 // ---------- FUNCTION THAT COLLECTS THE DATA AND ADDS IT TO THE LIST ON SUBMIT
