@@ -36,6 +36,17 @@ const renderNotes = (notesList) => {
     dateContainer.textContent = note.date;
     noteText.textContent = note.text;
     deleteButton.textContent = "Delete";
+
+    // ---------- ADDING AN ID TO EACH INDIVIDUAL NOTE
+    // individualNotesContainer.dataset.id = note.id;
+
+    // ---------- DELETE FUNCTIONALITY
+    deleteButton.addEventListener("click", () => {
+      const index = notesList.findIndex((item) => item.id === note.id);
+      notesList.splice(index, 1);
+      localStorage.setItem("notes-array", JSON.stringify(notesList));
+      renderNotes(notesList);
+    });
   });
 };
 

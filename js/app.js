@@ -45,6 +45,9 @@ const addNotes = () => {
     saveNotesToLocalStorage();
     emptyNotesList.style.display = "none";
   }
+  subjectInput.value = "";
+  dateInput.value = "";
+  noteText.value = "";
 };
 
 submitButton.addEventListener("click", addNotes);
