@@ -3,6 +3,7 @@
   src: url("../assets/fonts/Varela/Varela-Regular.ttf");
 }
 body {
+  min-width: 360px;
   width: 100%;
   height: 100vh;
   font-family: varela;
@@ -108,7 +109,7 @@ header {
   max-width: 100%;
   min-height: 5rem;
   padding: 0.5rem;
-  word-wrap: break-word;
+  overflow-wrap: anywhere;
   background-color: #cce5ff;
 }
 .delete-button {
@@ -116,4 +117,42 @@ header {
   font-size: 1.2rem;
   cursor: pointer;
 }
-/*  */
+/*  RESPONSIVE DESIGN / TABLET*/
+@media screen and (max-width: 1024px) {
+  .individual-notes-container {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .subject-date-container,
+  .note-input-container,
+  .submit-btn-container,
+  .all-notes-container {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 480px) {
+  header {
+    height: 15vh;
+  }
+  .add-note-container {
+    height: 37.5vh;
+  }
+  .subject-date-container,
+  .note-input-container,
+  .submit-btn-container,
+  .all-notes-container {
+    width: 90%;
+  }
+  .display-notes-container {
+    /* padding: 0; */
+    height: auto;
+    min-height: 47.5vh;
+  }
+  .display-notes-container h2 {
+    font-size: 1.2rem;
+  }
+  .error-message {
+    margin-top: 0.5rem;
+  }
+}

@@ -1,4 +1,5 @@
 const allNotesContainer = document.querySelector(".all-notes-container");
+const emptyNotesList = document.querySelector(".empty-notes-list");
 
 const renderNotes = (notesList) => {
   allNotesContainer.innerHTML = "";
@@ -46,6 +47,7 @@ const renderNotes = (notesList) => {
       notesList.splice(index, 1);
       localStorage.setItem("notes-array", JSON.stringify(notesList));
       renderNotes(notesList);
+      emptyNotesList.style.display = notesList.length === 0 ? "block" : "none";
     });
   });
 };

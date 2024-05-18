@@ -17,7 +17,7 @@ const validateInputFields = (
 const validateNoteLength = (noteText, errorElement) => {
   const noteValue = noteText.value.trim();
   console.log(noteValue.length);
-  if (noteValue.length >= 10) {
+  if (noteValue.length >= 500) {
     errorElement.textContent = "Maximun characters allowed is 500";
     return false;
   }

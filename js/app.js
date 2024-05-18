@@ -45,6 +45,7 @@ const addNotes = () => {
     saveNotesToLocalStorage();
     emptyNotesList.style.display = "none";
   }
+  error.textContent = "";
   subjectInput.value = "";
   dateInput.value = "";
   noteText.value = "";
