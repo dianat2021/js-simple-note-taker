@@ -57,6 +57,14 @@ header {
   width: 100%;
   height: 100%;
   cursor: pointer;
+  background: rgb(241, 204, 118);
+}
+  .submit-btn:hover {
+  background: rgb(209, 161, 51);
+}
+  .submit-btn:active {
+  background: rgb(124, 87, 1);
+  color: #9fc5e8;
 }
 .error-message {
   margin-top: 1rem;
@@ -84,9 +92,11 @@ header {
   /* border: 2px solid black; */
 }
 .individual-notes-container {
+  flex-direction: column;   
   border: 2px solid black;
   display: flex;
   border-radius: 0.25rem;
+  background: #cce5ff;
 }
 .individual-notes-data-container {
   flex-basis: 90%;
@@ -104,6 +114,9 @@ header {
   justify-content: center;
   align-items: center;
 }
+.note-input-container {
+  margin-bottom: 0.5rem;
+}
 .note-container {
   width: 100%;
   max-width: 100%;
@@ -114,15 +127,24 @@ header {
 }
 .delete-button {
   flex-basis: 10%;
-  font-size: 1.2rem;
+  width: fit-content;
+  margin: 0.5rem;
+  margin-left: auto;
+  padding: 0 1rem;  
   cursor: pointer;
+  background: rgb(225, 101, 105);
 }
+.delete-button:hover {
+  background: rgb(226, 76, 81);  
+}
+.delete-button:active {
+  background: rgb(121, 18, 21);
+  color: #cce5ff
+}
+
+
 /*  RESPONSIVE DESIGN / TABLET*/
-@media screen and (max-width: 1024px) {
-  .individual-notes-container {
-    flex-direction: column;
-  }
-}
+
 @media screen and (max-width: 768px) {
   .subject-date-container,
   .note-input-container,
